@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  app:
+    image: groupa.azurecr.io/my-go-app:latest
+    ports:
+      - "80:80"
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017
+
+  mongodb:
+    image: groupa.azurecr.io/mongo:latest
+    ports:
+      - "27017:27017"

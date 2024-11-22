@@ -41,7 +41,7 @@ func saveIPHandler(w http.ResponseWriter, r *http.Request) {
 }
 func main() {
 	var err error
-	mongoClient, err = mongo.Connect(context.TODO(), options.Client().ApplyURI("mongodb://localhost:27017"))
+	mongoClient, err = mongo.Connect(context.TODO(), options.Client().ApplyURI("mongodb://mongodb:27017"))
 	if err != nil {
 		log.Fatal(err)
 	}

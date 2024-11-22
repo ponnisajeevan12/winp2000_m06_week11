@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile # Path to your Go app Dockerfile
+    image: my-go-app:v1 # Custom image name
+    container_name: my-go-container # Custom container name  
+    ports:
+      - "80:80" # Expose the app on localhost:80
+    depends_on:
+      - mongodb # Ensure MongoDB starts first
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017 # MongoDB container hostname
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017" # Expose MongoDB on localhost:27017
+    volumes:
+      - mongodb_data:/data/db # Persist MongoDB data
+
+volumes:
+  mongodb_data:
