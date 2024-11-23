@@ -142,7 +142,7 @@
         fetch('https://api.ipify.org?format=json')
              .then(response => response.json())
              .then(data =>{
-                 fetch('http://localhost/api/visitors', {
+                 fetch('https://goapp-groupa.azurewebsites.net/api/visitors', {
                      method: 'POST',
                      headers: {
                                'Content-Type': 'application/json',
